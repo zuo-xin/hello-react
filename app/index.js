@@ -3,9 +3,8 @@ import {render} from 'react-dom'
 
 import './static/css/common.less'
 
-import Hello from './containers/Hello'
-
+import Todo from './containers/Todo'
 render(
-	<Hello />,
-	document.getElementById("root")
+	<Todo />,
+	document.getElementById('root')
 )
