@@ -1,25 +1,31 @@
 import React from 'react'
 import {render} from 'react-dom'
+import {BrowserRouter as Router,Route,Link} from 'react-router-dom'
 
 
 
 import './static/css/common.less'
-import {Router,Route,IndexRoute,hashHistory} from 'react-router'
-import App from './containers/App'
 import Home from './containers/Home'
-import List from './containers/List'
-import Detail from './containers/Detail'
+import Topic from './containers/Topic'
+import Topics from './containers/Topics'
+import About from './containers/About'
 import NotFound from './containers/NotFound'
 
 
 render((
-	<Router history={hashHistory}>
-		<Route path='/' component={App}>
-			<IndexRoute component={Home} />
-			<Route path="list" component={List} />
-			<Route path="detail/:id" component={Detail} />
-			<Route path="*" component={NotFound} />
-		</Route>
-	</Router>
+	<Router>
+    <div>
+      <ul>
+        <li><Link to="/">首页</Link></li>
+        <li><Link to="/about">关于</Link></li>
+        <li><Link to="/topics">主题列表</Link></li>
+      </ul>
+      <hr/>
+
+      <Route exact path="/" component={Home}/>
+      <Route path="/about" component={About}/>
+      <Route path="/topics" component={Topics}/>
+    </div>
+  </Router>
 	),document.getElementById("root")
 )
